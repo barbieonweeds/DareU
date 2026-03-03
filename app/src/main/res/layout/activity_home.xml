@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:text="WORD TRAP"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#1A1A2E"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Trick your opponent. Don't get tricked."
+        android:textSize="14sp"
+        android:gravity="center"
+        android:textColor="#6C757D"
+        android:layout_marginBottom="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/homeWins"
+                    android:text="Wins: 0"
+                    android:textColor="#28A745"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/homeLosses"
+                    android:text="Losses: 0"
+                    android:textColor="#DC3545"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/nameInput"
+                android:hint="Enter your name"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/randomBtn"
+        android:text="Random Match"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="#4361EE"
+        android:textColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <Button
+        android:id="@+id/createRoomBtn"
+        android:text="Create Room"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:backgroundTint="#3A0CA3"
+        android:textColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <Button
+        android:id="@+id/joinRoomBtn"
+        android:text="Join with Code"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:textSize="16sp"
+        android:backgroundTint="#7209B7"
+        android:textColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+</LinearLayout>

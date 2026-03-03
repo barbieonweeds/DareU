@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center"
+    android:background="#F8F9FA" android:padding="32dp">
+
+    <ProgressBar android:layout_width="64dp" android:layout_height="64dp"
+        android:layout_marginBottom="24dp" android:indeterminateTint="#4361EE"/>
+    <TextView android:id="@+id/waitingMessage" android:text="Finding a match..."
+        android:textSize="20sp" android:textStyle="bold" android:gravity="center"
+        android:textColor="#1A1A2E" android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:text="This may take a moment"
+        android:textSize="14sp" android:textColor="#6C757D" android:gravity="center"
+        android:layout_marginBottom="40dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/cancelBtn" android:text="Cancel"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:backgroundTint="#6C757D" android:textColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.Button"/>
+</LinearLayout>
