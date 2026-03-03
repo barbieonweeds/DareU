@@ -9,7 +9,18 @@
     android:gravity="center">
 
     <TextView
-        android:text="WORD TRAP"
+        android:id="@+id/homePlayerName"
+        android:text="Player"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#4361EE"
+        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="DARE-U"
         android:textSize="32sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -66,17 +77,6 @@
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
-
-            <EditText
-                android:id="@+id/nameInput"
-                android:hint="Enter your name"
-                android:inputType="textPersonName"
-                android:background="@null"
-                android:textSize="16sp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
