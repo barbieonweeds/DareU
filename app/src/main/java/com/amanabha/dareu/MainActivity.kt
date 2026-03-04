@@ -385,7 +385,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ── WebSocket ─────────────────────────────────────────────────────────
 
     private fun connectAndSend(initialMsg: JSONObject) {
         ws?.close(1000, "reconnecting")
@@ -396,15 +395,24 @@ class MainActivity : AppCompatActivity() {
 
         ws = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
+                // Only send AUTH here — wait for AUTH_OK before doing anything else
                 webSocket.send(JSONObject().apply {
                     put("type",     "AUTH")
                     put("deviceId", myDeviceId)
                 }.toString())
-                webSocket.send(initialMsg.toString())
             }
 
             override fun onMessage(webSocket: WebSocket, text: String) {
-                handleServerMessage(JSONObject(text))
+                val msg = JSONObject(text)
+                // If AUTH_OK, send the queued initial message NOW
+                if (msg.getString("type") == "AUTH_OK") {
+                    myWins   = msg.optInt("wins",   myWins)
+                    myLosses = msg.optInt("losses", myLosses)
+                    myDraws  = msg.optInt("draws",  myDraws)
+                    webSocket.send(initialMsg.toString()) // send JOIN_RANDOM / CREATE_ROOM / JOIN_ROOM
+                } else {
+                    handleServerMessage(msg)
+                }
             }
 
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
@@ -419,18 +427,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
     private fun send(data: JSONObject) { ws?.send(data.toString()) }
 
     private fun handleServerMessage(msg: JSONObject) {
         when (msg.getString("type")) {
-
-            "AUTH_OK" -> {
-                myWins   = msg.optInt("wins",   myWins)
-                myLosses = msg.optInt("losses", myLosses)
-                myDraws  = msg.optInt("draws",  myDraws)
-            }
-
             "WAITING" -> { }
 
             "ROOM_CREATED" -> {
